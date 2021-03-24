@@ -1,0 +1,10 @@
+Apagar os dados da tabela e resetar a codificação do auto_increment;
+
+nessa ordem:
+delete from palavra_localizacao;
+delete from palavras;
+delete from urls;
+
+alter table urls auto_increment = 1;
+alter table palavra_localizacao auto_increment = 1;
+alter table palavras auto_increment = 1;

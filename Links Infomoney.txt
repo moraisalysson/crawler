@@ -1,0 +1,25 @@
+https://www.infomoney.com.br/ultimas-noticias/
+https://www.infomoney.com.br/mercados/
+https://www.infomoney.com.br/onde-investir/
+https://www.infomoney.com.br/minhas-financas/
+https://www.infomoney.com.br/politica/
+https://www.infomoney.com.br/consumo/
+https://www.infomoney.com.br/carreira/
+https://www.infomoney.com.br/economia/
+https://www.infomoney.com.br/colunistas/
+
+Todas elas têm a opção de "CARREGAR MAIS":
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
+
+	driver = webdriver.Chrome(ChromeDriverManager().install())
+        driver.get(pagina)
+        
+        btn_more = driver.find_element(By.ID, 'infinite-handle')
+        btn_more.click()
+
+
+Outra opção: https://medium.com/ymedialabs-innovation/web-scraping-using-beautiful-soup-and-selenium-for-dynamic-page-2f8ad15efe25
+

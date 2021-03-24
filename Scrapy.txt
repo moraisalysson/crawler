@@ -1,0 +1,7 @@
+1) pip install scrapy
+*python -m pip install --upgrade pip
+*python -m pip install scrapy --user
+2) scrapy startproject MEU_PROJETO
+4) scrapy genspider NOME_SPIDER endereço_site.com
+5) scrapy runspider noticias/spiders/Tecnoblog.py
+
