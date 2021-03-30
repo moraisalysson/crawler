@@ -5,7 +5,7 @@ def gerarTuplaUrlPalavrasBD():
     conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db='indice', use_unicode = True, charset = 'utf8mb4')
     cursor = conexao.cursor()
         
-    cursor.execute('select idurl, idpalavra from palavra_localizacao where idurl <= 2')
+    cursor.execute('select idurl, idpalavra from palavra_localizacao where idurl > 5 and idurl <= 5000')
     #último idurl = 21.530
     
     cursor.close()
@@ -24,22 +24,23 @@ def gerarTuplaPalavrasPolaridadeBD():
         
     return cursor.fetchall()
 
-def insereScorePolaridadeUrls(idurl, dicionario):
+def insereScorePolaridadeUrls(idURL, dic):
     conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db='indice', autocommit='true')
     cursor = conexao.cursor()
+    print(idURL)
     
-    cursor.execute('insert into noticias_score(id_url, score_LIWC, score_OpLexicon, score_ReLiLex, score_Sentilex, score_WordnetBr, polaridade_LIWC, polaridade_OpLexicon, polaridade_ReLiLex, polaridade_Sentilex, polaridade_WordnetBr) values(%d, %d, %d, %d, %d, %d, %s, %s, %s, %s, %s)', 
-                                                   (idurl, 
-                                                    dicionario[idurl][0], 
-                                                    dicionario[idurl][1],
-                                                    dicionario[idurl][2],
-                                                    dicionario[idurl][3],
-                                                    dicionario[idurl][4],
-                                                    dicionario[idurl][5],
-                                                    dicionario[idurl][6],
-                                                    dicionario[idurl][7],
-                                                    dicionario[idurl][8],
-                                                    dicionario[idurl][9]
+    cursor.execute('insert into noticias_score(id_url, score_LIWC, score_OpLexicon, score_ReLiLex, score_Sentilex, score_WordnetBr, polaridade_LIWC, polaridade_OpLexicon, polaridade_ReLiLex, polaridade_Sentilex, polaridade_WordnetBr) values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', 
+                                                   (idURL, 
+                                                    dic[idURL][0], 
+                                                    dic[idURL][1],
+                                                    dic[idURL][2],
+                                                    dic[idURL][3],
+                                                    dic[idURL][4],
+                                                    dic[idURL][5],
+                                                    dic[idURL][6],
+                                                    dic[idURL][7],
+                                                    dic[idURL][8],
+                                                    dic[idURL][9]
                                                     ))
     idpalavra_polaridade = cursor.lastrowid
 
@@ -56,9 +57,7 @@ tuplaUrlPalavra = gerarTuplaUrlPalavrasBD()
 tuplaPalavrasPolaridade = gerarTuplaPalavrasPolaridadeBD()
 
 #calculando os scores de cada url/notícia
-for idUrl, idPalavraUrl in tuplaUrlPalavra:
-    print(idUrl)
-    
+for idUrl, idPalavraUrl in tuplaUrlPalavra:    
     if idAnterior != idUrl:
         tuplaSomadora = [0, 0, 0, 0, 0]
         
