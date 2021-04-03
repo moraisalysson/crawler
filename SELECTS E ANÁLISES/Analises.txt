@@ -1,0 +1,76 @@
+obj geral
+- ferramentas gratuitas (OK)
+- citar o infomoney  (OK)
+
+obj específicos
+- notícias no portal do infomoney (OK)
+*ser mais genérico e não comentar sobre companhias (OK)
+
+limitações
+- dificuldades na coleta dos dados
+- 
+
+sugestão:
+- verificar empresas específicas e analisar de abertura e fechamento do dia atual, do dia anterior e do seguinte
+*as baixas podem ser aliviadas pelas notícias
+- tirar a média das cotações para encontrar a tendência e comparar com as notícias
+*trabalhar em um notícia só e vai vendo as análises possíveis
+
+*trabalhos futuro:
+- análise no valuation dos relatórios trimestrais e os valores das ações c/ aplicação de machine learning/deep learning
+  
+
+select: petrobras
+idulr: 125
+título: Ibovespa fecha em alta de 1,9% e retoma os 100 mil pontos seguindo exterior; dólar cai a R$ 5,27
+data notícia: 14/09/2020
+11/09/2020 abertura/fechamento (PETR3): 22,06 / 22,04 
+14/09/2020 abertura/fechamento (PETR3): 22,07 / 21,82  
+15/09/2020 abertura/fechamento (PETR3): 22,17 / 21,87  
+média: 22,10 / 21,91
+polaridade: 5 positivas
+
+select: petrobras
+idulr: 17750
+título: Dólar cai mais de 1% após fala de presidente do BC e Ibovespa vira para queda com exterior
+data notícia: 18/10/2019
+17/10/2019 abertura/fechamento (PETR3): 29,83 / 29,74 
+18/10/2019 abertura/fechamento (PETR3): 29,85 / 29,49  
+21/10/2019 abertura/fechamento (PETR3): 29,55 / 29,89  
+média: 29,74 / 29,71
+polaridade: 5 positivas
+
+select: petrobras
+idulr: 6806
+título: Setor de máquinas e equipamentos em MG prevê mais 9 mil demissões este ano
+data notícia: 06/07/2015
+03/07/2015 abertura/fechamento (PETR3): 13,18 / 12,51 
+06/07/2015 abertura/fechamento (PETR3): 12,42 / 12,41  
+07/07/2015 abertura/fechamento (PETR3): 12,39 / 12,71 
+média: 12,66 / 12,54
+polaridade: 4 positivas e 1 negativa
+
+
+02/04/2021
+- calibração
+- seleções de textos de datas que tiveram grandes altas e grandes baixas
+- joesley day
+- brumadinho
+- coronavírus/pandemia (12/03/2020)
+- procurar grandes ALTAS
+*temor
+*precaução
+*cautela
+*alta
+*baixa
+*errático
+*ganhos
+*perdas
+
+palavras mais utilizar: dar pesos (1, 2, 3)
+lista em ordem das palavras mais citadas
+retirar artigos e verbos de ligação
+
+Artigo:
+textos com tendências de jornalismo formástico por se tratar maior corretora do Brasil
+comentar as palavras mais utilizadas para fins de calibração

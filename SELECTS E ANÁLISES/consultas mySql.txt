@@ -1,0 +1,21 @@
+SÓ OS ID
+SELECT palavra_localizacao.idurl
+FROM palavra_localizacao
+JOIN palavras ON palavras.idpalavra=palavra_localizacao.idpalavra where palavras.palavra like '%petrobras%';
+
+ID COM AS URLS
+select idurl, url, dia, mes, ano from urls where idurl IN (SELECT palavra_localizacao.idurl
+FROM palavra_localizacao
+JOIN palavras ON palavras.idpalavra=palavra_localizacao.idpalavra 
+where palavras.palavra like '%petrobras%');
+
+QUANTIDADE DE REPETIÇÕES DE CADA PALAVRA
+SELECT idpalavra, COUNT(*) AS "Qtde repeteições palavras" FROM palavra_localizacao GROUP BY idpalavra ORDER BY COUNT(*) DESC;
+
+QUANTIDADE DE REPETIÇÕES DE CADA PALAVRA (BUSCANDO A PALAVRA)
+SELECT palavras.idpalavra, COUNT(palavra_localizacao.idpalavra), palavras.palavra, palavra_polaridade.polaridade_LIWC, palavra_polaridade.polaridade_OpLexicon, palavra_polaridade.polaridade_ReLiLex, palavra_polaridade.polaridade_Sentilex, palavra_polaridade.polaridade_WordnetBr 
+FROM palavras
+INNER JOIN palavra_localizacao ON palavras.idpalavra = palavra_localizacao.idpalavra
+INNER JOIN palavra_polaridade ON palavras.idpalavra = palavra_polaridade.idpalavra
+GROUP BY palavras.idpalavra
+ORDER BY COUNT(*) DESC;
