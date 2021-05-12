@@ -1,0 +1,61 @@
+sintaxe:
+UPDATE nome_tabela
+SET CAMPO = "novo_valor"
+WHERE campo is null;
+
+exemplo:
+UPDATE palavra_polaridade
+SET palavra_polaridade.polaridade_LIWC = 0
+WHERE palavra_polaridade.polaridade_LIWC is null;
+
+UPDATE palavra_polaridade
+SET palavra_polaridade.polaridade_LIWC = palavra_polaridade.polaridade_LIWC * 2, 
+palavra_polaridade.polaridade_OpLexicon = palavra_polaridade.polaridade_OpLexicon * 2,
+palavra_polaridade.polaridade_ReLiLex = palavra_polaridade.polaridade_ReLiLex * 2,
+palavra_polaridade.polaridade_Sentilex = palavra_polaridade.polaridade_Sentilex * 2,
+palavra_polaridade.polaridade_WordnetBr = palavra_polaridade.polaridade_WordnetBr * 2
+WHERE palavra_polaridade.idpalavra = 78 
+AND palavra_polaridade.idpalavra = 1669
+AND palavra_polaridade.idpalavra = 92
+AND palavra_polaridade.idpalavra = 290
+AND palavra_polaridade.idpalavra = 292
+AND palavra_polaridade.idpalavra = 575
+AND palavra_polaridade.idpalavra = 462
+AND palavra_polaridade.idpalavra = 2333
+AND palavra_polaridade.idpalavra = 3019
+AND palavra_polaridade.idpalavra = 1679
+AND palavra_polaridade.idpalavra = 1256
+AND palavra_polaridade.idpalavra = 963
+AND palavra_polaridade.idpalavra = 340
+AND palavra_polaridade.idpalavra = 3016
+AND palavra_polaridade.idpalavra = 677
+AND palavra_polaridade.idpalavra = 3776
+AND palavra_polaridade.idpalavra = 7025
+AND palavra_polaridade.idpalavra = 119
+AND palavra_polaridade.idpalavra = 2434
+AND palavra_polaridade.idpalavra = 742
+AND palavra_polaridade.idpalavra = 68
+AND palavra_polaridade.idpalavra = 1690
+AND palavra_polaridade.idpalavra = 2925
+AND palavra_polaridade.idpalavra = 2976
+AND palavra_polaridade.idpalavra = 4005
+AND palavra_polaridade.idpalavra = 1387
+AND palavra_polaridade.idpalavra = 5720
+AND palavra_polaridade.idpalavra = 5166
+AND palavra_polaridade.idpalavra = 6793
+AND palavra_polaridade.idpalavra = 5168
+AND palavra_polaridade.idpalavra = 3335
+AND palavra_polaridade.idpalavra = 4619
+AND palavra_polaridade.idpalavra = 3960
+AND palavra_polaridade.idpalavra = 3472
+AND palavra_polaridade.idpalavra = 2471
+AND palavra_polaridade.idpalavra = 2313
+AND palavra_polaridade.idpalavra = 2382
+AND palavra_polaridade.idpalavra = 4618
+AND palavra_polaridade.idpalavra = 2191
+AND palavra_polaridade.idpalavra = 5294
+AND palavra_polaridade.idpalavra = 6258
+AND palavra_polaridade.idpalavra = 1176
+AND palavra_polaridade.idpalavra = 3313
+AND palavra_polaridade.idpalavra = 846
+AND palavra_polaridade.idpalavra = 5728;

@@ -67,10 +67,14 @@ polaridade: 4 positivas e 1 negativa
 *ganhos
 *perdas
 
-palavras mais utilizar: dar pesos (1, 2, 3)
+palavras mais utilizadas: dar pesos (1, 2, 3)
 lista em ordem das palavras mais citadas
 retirar artigos e verbos de ligação
 
 Artigo:
 textos com tendências de jornalismo formástico por se tratar maior corretora do Brasil
 comentar as palavras mais utilizadas para fins de calibração
+
+04/05/2021 (sugestões de Leandro)
+- palavras de intensidade que podem ter conotação boas ou ruins a depender das demais palavras do texto
+- acertos poderiam ser muito maior se avaliados maior 
