@@ -2,10 +2,11 @@
 import nltk
 import pymysql
 
+banco_dados = 'index4'
 
 def palavraIndexada(idpalavra): #verifica se palavra já existe no índice
     retorno = -1
-    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db='indice2', use_unicode = True, charset = 'utf8mb4')
+    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db=banco_dados, use_unicode = True, charset = 'utf8mb4')
     cursor = conexao.cursor()
     
     cursor.execute('select idpalavra_polaridade from palavra_polaridade where idpalavra = %s', idpalavra)
@@ -19,10 +20,10 @@ def palavraIndexada(idpalavra): #verifica se palavra já existe no índice
     return retorno
 
 def atualizarPolaridade(idPalavra_polaridade, polaridade):
-    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db='indice2', autocommit='true')
+    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db=banco_dados, autocommit='true')
     cursor = conexao.cursor()
     
-    cursor.execute('update palavra_polaridade SET polaridade_ReLiLex = %s WHERE idpalavra_polaridade = %s', (polaridade, idPalavra_polaridade))
+    cursor.execute('update palavra_polaridade SET pol_ReLiLex_2 = %s WHERE idpalavra_polaridade = %s', (polaridade, idPalavra_polaridade))
     idpalavra_polaridade = cursor.lastrowid
 
     cursor.close()
@@ -31,10 +32,10 @@ def atualizarPolaridade(idPalavra_polaridade, polaridade):
     return idpalavra_polaridade
     
 def inserePalavraPolaridade(idpalavra, polaridade):
-    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db='indice2', autocommit='true')
+    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db=banco_dados, autocommit='true')
     cursor = conexao.cursor()
     
-    cursor.execute('insert into palavra_polaridade(idpalavra, polaridade_ReLiLex) values(%s, %s)', (idpalavra, polaridade))
+    cursor.execute('insert into palavra_polaridade(idpalavra, pol_ReLiLex_2) values(%s, %s)', (idpalavra, polaridade))
     idpalavra_polaridade = cursor.lastrowid
 
     cursor.close()
@@ -51,7 +52,7 @@ def eNumero(valor):
     return True
 
 def gerarTuplaPalavrasBD():
-    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db='indice2', use_unicode = True, charset = 'utf8mb4')
+    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db=banco_dados, use_unicode = True, charset = 'utf8mb4')
     cursor = conexao.cursor()
         
     cursor.execute('select * from palavras')
@@ -62,7 +63,7 @@ def gerarTuplaPalavrasBD():
     return cursor.fetchall()
 
 def gerarTuplaPalavrasPolaridadeBD():
-    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db='indice2', use_unicode = True, charset = 'utf8mb4')
+    conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db=banco_dados, use_unicode = True, charset = 'utf8mb4')
     cursor = conexao.cursor()
         
     cursor.execute('select * from palavra_polaridade')

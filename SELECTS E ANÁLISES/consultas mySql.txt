@@ -19,3 +19,11 @@ INNER JOIN palavra_localizacao ON palavras.idpalavra = palavra_localizacao.idpal
 INNER JOIN palavra_polaridade ON palavras.idpalavra = palavra_polaridade.idpalavra
 GROUP BY palavras.idpalavra
 ORDER BY COUNT(*) DESC;
+
+PEGAR AS PALAVRAS (TABELA PALAVRAS) E SUAS POLARIDADES (TABELA PALAVRA_POLARIDADE)
+SELECT palavras.idpalavra, palavras.palavra, palavra_polaridade.polaridade_LIWC, polaridade_OpLexicon, polaridade_ReLiLex, polaridade_Sentilex, polaridade_WordnetBR
+FROM palavras
+INNER JOIN palavra_polaridade ON palavras.idpalavra = palavra_polaridade.idpalavra;
+
+
+select * from noticias_score where id_url = 1423;
