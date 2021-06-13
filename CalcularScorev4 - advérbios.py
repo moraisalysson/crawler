@@ -10,8 +10,7 @@ def gerarTuplaUrlPalavrasBD():
     conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db=banco_dados, use_unicode = True, charset = 'utf8mb4')
     cursor = conexao.cursor()
         
-    cursor.execute('select idurl, idpalavra from palavra_localizacao where idurl = 1423')
-    #último idurl = 3.938
+    cursor.execute('select idurl, idpalavra from palavra_localizacao where idurl = 4058')
     
     cursor.close()
     conexao.close()

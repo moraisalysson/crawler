@@ -2,16 +2,12 @@ import pymysql
 
 
 banco_dados = 'index4'
-adv_amplificadores = ['bastante', 'demais', 'bem', 'tão'] #'muito', 'mais', 'tanto', 'deveras', 'quanto',
-adv_atenuadores = ['pouco'] #'menos',  'quase', , 'apenas'
-termos_negacao = ['nada'] #'não', 'nenhum', 'nenhuma', 'nunca', 'jamais', , 'nem'
 
 def gerarTuplaUrlPalavrasBD():
     conexao = pymysql.connect(host='localhost', user='root', passwd='@dmin123', db=banco_dados, use_unicode = True, charset = 'utf8mb4')
     cursor = conexao.cursor()
         
-    cursor.execute('select idurl, idpalavra from palavra_localizacao where idurl = 1423')
-    #último idurl = 3.938
+    cursor.execute('select idurl, idpalavra from palavra_localizacao where idurl = 4547')
     
     cursor.close()
     conexao.close()
